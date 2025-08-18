@@ -10,11 +10,10 @@ Entonces este trabajo no va aprdecir los datos actuales de las casas, fue utiliz
 El análisis de este Dataset ayuda a ver como un buen análsis de datos, puede generar conocimiento valioso para toma de desiciones, ayudando a :
 
 Objetivo comercial: Poder predecir precios de casas de manera automática, basándose en algunas características determinadas. 
-
-                    *Mejorar la toma de decisiones
-                    *Reducir de costos
-                    *Mejorar la calidad de servicio
-                    *Reducir de errores
+Mejorar la toma de decisiones
+Reducir de costos
+Mejorar la calidad de servicio
+Reducir de errores
                 
 Objetivo del análisis:
                        * A partir de los datos históricos utilizar técnicas de predicción para obtener un precio apropiado para una casa en función de las variables que inciden en mayor medida en el precio.
