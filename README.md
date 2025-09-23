@@ -62,40 +62,47 @@ Reducir de errores
 ***Objetivo de análisis y minería de datos:*** A partir de los datos históricos se analizan las variables disponibles para identificar cuáles influyen de manera predominante en el objeto de estudio. Con base en este análisis, se aplican técnicas de predicción (modelo de regresión) que permiten estimar un precio adecuado de una vivienda en función de las variables que mayor impacto tienen en su valor..
 
 
-## Codigo  Instalaci[on y Ejecución 
-Para poder hacer este análisis fue hehco en Google Cola con Pythom, y es necesario intalar las siguientes librerias:
+## 📂 Código, Instalación y Ejecución  
 
-🧰 Requisitos
-- Python 3.10+ (recomendado)
-- Git
-- Google Colab
+Este análisis fue realizado en **Google Colab** con **Python**, por lo que es necesario contar con las siguientes librerías y herramientas instaladas.
 
-🚀 Instalación
+### 🧰 Requisitos
+- Python 3.10+ (recomendado)  
+- Git  
+- Google Colab (o Jupyter Notebook si trabajas localmente)  
 
-1) Clona el repositorio
-```bash
-git clone https://github.com/TU_USUARIO/TU_REPO.git
+---
+
+### 🚀 Instalación
+
+1. **Clona el repositorio**
+```git clone https://github.com/TU_USUARIO/TU_REPO.git
 cd TU_REPO
 
-1. Crea y activa un entorno virtual
-Windowspython -m venv .venv
+2. **Crea y activa un entorno virtual**
+Windows
+python -m venv .venv
 .venv\Scripts\activate
 
-2. Instala dependencias
-pip install -r requirements.txt
+macOS / Linux
+python3 -m venv .venv
+source .venv/bin/activate
 
-3. Istala dependencias
+3. **Instala las dependencias**
 pip install -r requirements.txt
 
 ▶️ Ejecución
 A) Script de Python
 python src/main.py --config configs/base.yaml
 
-B) Jupyter Notebook (EDA / análisis)
-jupyter lab   # o: jupyter notebook
-# Abrir: notebooks/EDA.ipynb
+B) Jupyter Notebook / Google Colab
+jupyter lab
+jupyter notebook
 
-2) Librerías ultilizadas 
+1. Abrir el archivo:
+notebooks/EDA.ipynb
+
+📚 Librerías utilizadas
 import sys
 import matplotlib
 import matplotlib.pyplot as plt
@@ -115,9 +122,38 @@ import warnings
 
 ⏹️ Salir del entorno
 deactivate
+```
+
+## Desarolladora del proyecto
+
+**GABRIELA ROMERO  MORENO** 
+<img align="right" width="250" alt="Screenshot 2025-07-16 152132" src="https://github.com/user-attachments/assets/735c69ec-20b7-45d4-8646-1497d2e6e7f8" />
 
 
-               
+MAESTRÍA EN CIENCIAS  
+ANALISTA DE DATOS CON MÁS DE 5 AÑOS DE EXPERIENCIA EN ENTORNOS CIENTÍFICOS
+EDUCATIVOS-ADMINISTRATIVOS. ESPECIALIZADA EN ANÁLISIS ESTADÍSTICO, GESTIÓN Y 
+VISUALIZACIÓN DE BASES DE DATOS.  
+
+## Análisis Descriptivo
+
+En la base de datos original, se tenía un total de 81 variables , y 1460 datos. Una vez revisado los índices de correlación, se determinó aplicar el modelo solo a 8 variables con el índice más alto de correlación. 
+
+La base de datos limpia, con las 8 variablesse ve de la siguiente forma: 
+<img width="987" height="569" alt="image" src="https://github.com/user-attachments/assets/f0d2a882-c4ac-4257-8c06-6d5522f8e30a" />
+
+posee las siguientes carácterísticas: 
+
+<img width="1116" height="453" alt="image" src="https://github.com/user-attachments/assets/ddf33cd6-a370-43d9-9df9-9f2ecf08ca23" />
+
+<img width="830" height="649" alt="image" src="https://github.com/user-attachments/assets/50ea76e7-8a06-44d2-8148-3abedc9ad3b5" />
+
+Y las correlaciones entre nuestra variable objetivo ('SalesPrice') y las dem[as variables> 
+<img width="1364" height="422" alt="image" src="https://github.com/user-attachments/assets/d203087c-4bf6-41f0-b128-1b17a3e24672" />
+
+
+
+
 
                 
 
