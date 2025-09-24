@@ -313,7 +313,13 @@ En este caso x_new1 y x_new3 corresponden a datos reales, para poder comparar y 
 <img width="625" height="591" alt="image" src="https://github.com/user-attachments/assets/b8dc2c2e-64f0-4240-bca6-20b56f501591" />
 
 
+Podemos observar la predicicion para x_new1 con RF es 200743.21 y con DT 206433.65, el valor real es de 208500, es decir se acerca mas DT
+Podemos observar la predicicion para x_new3 con RF es 200743.21 y con DT 206433.65, el valor real es de 223550, es decir se acerca mas DT
 
+
+
+
+👉 Conclusión: El modelo Random Forest no solo presenta un menor error absoluto y cuadrático, sino que también explica una mayor proporción de la variabilidad de los datos. Esto confirma que, al compararlo con el Decision Tree, el Random Forest es el modelo más robusto, preciso y cercano a la realidad.
 
 
 
