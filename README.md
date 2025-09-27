@@ -295,7 +295,7 @@ print('Saved model: ' + model_name)
 ```
 Para poder proceder a las predicciones, con datos nuevos, y con los datos reales.
 
-***PREDICCIÓN**
+**PREDICCIÓN**
 
 Para poder hacer las predicciones, primero creamos una matriz de Numpy, para utilizar el modelo con datos nuevos:
 
@@ -306,20 +306,63 @@ x_new2= np.array([[6,	1262,	460,	1262,	2,	1976,	0]])
 x_new3= np.array([[7,	1786,	608,	920,	2,	2001,	0]])
 x_new4= np.array([[5,	1256,	276,	1256,	1,	1965,	0]])
 ```
-En este caso x_new1 y x_new3 corresponden a datos reales, para poder comparar y conocer realmente la precisión de la predicción en ambos modelos. Las predicciones las hacemos con el siguiente códigopoemos verlas: 
- 
-<img width="706" height="477" alt="image" src="https://github.com/user-attachments/assets/bc9c913c-ae82-4f81-b077-029fb086dbc4" />
+En este caso x_new1 y x_new3 corresponden a datos reales (x_new1: datos del registro 0; x_new3: datos del registro 2).
 
-<img width="625" height="591" alt="image" src="https://github.com/user-attachments/assets/b8dc2c2e-64f0-4240-bca6-20b56f501591" />
+Las predicciones las hacemos con el siguiente código poemos verlas: 
+``` # Estimación de precio con el modelo Random Forest
+y_new = reg_model_rf.predict(X_new)
+np.round(y_new, 2)
+array([302552.35])
+```
+``` # Estimación de precio con el modelo DecisionTreeRegressor
+y_new = reg_model_dt.predict(X_new)
+np.round(y_new, 2)
+array([377710.29])
+```
+```# Estimación de precio con el modelo Random Forest
+y_new = reg_model_rf.predict(x_new3)
+np.round(y_new, 2)
+array([200743.21])
+```
+```# Estimación de precio con el modelo DecisionTreeRegressor
+y_new = reg_model_dt.predict(x_new3)
+np.round(y_new, 2)
+array([206433.65])
+```
+Ahora bien, en casos puntuales, puede ser que el modelo de Decision Tree, se acerque más a la realidad por ejemplo, nuestra predicicón x_new3, le puse al proposito valores reales que corresponden a los datos de nuestro registro número 2  <img width="361" height="286" alt="image" src="https://github.com/user-attachments/assets/21c014da-2ca9-40f3-8344-f1092239b70a" />
 
 
-Podemos observar la predicicion para x_new1 con RF es 200743.21 y con DT 206433.65, el valor real es de 208500, es decir se acerca mas DT
-Podemos observar la predicicion para x_new3 con RF es 200743.21 y con DT 206433.65, el valor real es de 223550, es decir se acerca mas DT
+¿Qué pasa aqui? o que obtenemos:
+Random Forest → 200,743.21
+Decision Tree → 206,433.65
+
+📊 Diferencia con el valor real
+  <img width="791" height="191" alt="image" src="https://github.com/user-attachments/assets/34eaf3eb-391e-49c6-af48-1fb7e9fdc61d" />
 
 
+🚨 ¿Por qué pasa esto?
 
+El modelo no memoriza los datos:
+Aunque el modelo se entreno con los datos reales, los algoritmos no hacen **lookup exacto**, sino que buscan patrones y promedios.
 
-👉 Conclusión: El modelo Random Forest no solo presenta un menor error absoluto y cuadrático, sino que también explica una mayor proporción de la variabilidad de los datos. Esto confirma que, al compararlo con el Decision Tree, el Random Forest es el modelo más robusto, preciso y cercano a la realidad.
+Un Decision Tree profundo puede acercarse más porque se ajusta mucho a los datos (riesgo de overfitting).
+Random Forest promedia muchos árboles → suaviza los valores y se aleja un poco más del dato exacto, pero generaliza mejor.
+
+Variables elegidas:
+Puede que falten variables importantes en el modelo (ejemplo: vecindario, tamaño del lote, número de habitaciones).
+El precio de una casa no depende solo de 5–7 variables, y eso limita la precisión.
+Escala del error:
+Tus RMSE eran del orden de 45,000 USD, por lo que un error de 20,000 USD en un ejemplo puntual está dentro de lo esperado.
+
+Podemos decir que, no es que la predicción esté mal hecha, sino que está dentro del rango de error típico de tu modelo. El Decision Tree se acercó más en este caso puntual, pero en promedio el Random Forest debería tener mejor desempeño.
+
+Si quieres que el modelo se acerque más al precio real:
+
+Agrega más variables relevantes (Neighborhood, LotArea, GarageCars, etc.).
+Prueba un modelo más complejo (ej. Gradient Boosting, XGBoost, LightGBM).
+Ajusta los hiperparámetros del Random Forest (n_estimators, max_depth, etc.).
+
+**👉 Conclusión**: El modelo Random Forest no solo presenta un menor error absoluto y cuadrático, sino que también explica una mayor proporción de la variabilidad de los datos. Esto confirma que, al compararlo con el Decision Tree, el Random Forest es el modelo más robusto, preciso y cercano a la realidad.
 
 
 
