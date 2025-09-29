@@ -4,9 +4,10 @@
 </p>
 
 # DESCRIPCIÓN DEL PROYECTO
+
    ## Predicción y Análisis de Precios de Casas  
 
-Este repositorio contiene mi **primer proyecto de análisis de datos**, donde aplico **Python** y **SQL** para explorar, limpiar y analizar un dataset de precios de viviendas.  
+Este repositorio contiene mi **primer proyecto de análisis de datos**, donde aplico **Python** para explorar, limpiar y analizar un dataset de precios de viviendas.  
 El proyecto incluye la implementación de un **modelo de Regresión** para la **predicción de precios de casas**.  
 
 ---
@@ -41,11 +42,13 @@ El proyecto incluye la implementación de un **modelo de Regresión** para la **
 # ESTRUCTURA DEL PROYECTO  
 
 ## Portafolio_Housig_PredictionTraining
+
 Se realiza un análisis de datos, para identificaciar las variables más importantes que afectan a la estimación de precios. Lo primero a realizar es el análisis general del *BASE DE DATOS* original, para hacer un análisis exploratorio, se revisa las correlaciones para identificar y elegir las variables  con la mayor correlación, posteriormente se realiza un *DataFrame* con los datos que vamos a utilizar, y a las variables a las que vamos a aplicar el modelo de regresión. 
 
 La base de datos original es proveniente de Kaggle. Se utiliza un modelo de ML basado en modelos de regressión (Decision Tree Regressor, Random Forest Regressor). Este análisis me sirve para mostrar habilidades de análisis de datos, comprensión básica de modelos de automatización de ML. Uso de  Python, SQL, elaboración de Dashboards, y Matplotlib.
 
 ## Contexto de los datos
+
 Esta base de datos contienen información del censo de las casas en California de 1990. 
 Entonces este trabajo no va aprdecir los datos actuales de las casas, fue utilizado en el segundo capítulo del libro de Aurélien Géron, "Aprendizaje automático práctico con Scikit-Learn y TensorFlow". Se utiliza como ejercicio e introducción a la implementación de algoritmos de aprendizaje automático. Pero la base disponible en Kaggle es un una versión modificada del conjunto de datos de Vivienda de California, disponible en la página de Luís Torgo (Universidad de Oporto).
 
@@ -54,6 +57,7 @@ Objetivo del análisis:
                        * Creación de un modelo utilizando datos disponibles para pronosticar los precios de casa.
           
 ## Entendimiento del negocio
+
 Aunque este análisis es solamente como ejercicio, y demostración de habilidades, el análisis de este Dataset ayuda a ver como un buen análsis de datos, puede generar conocimiento valioso para toma de desiciones en diferentes sectores, ayudando a :
 
 ***Objetivo comercial:*** Poder predecir precios de casas de manera automática, basándose en algunas características determinadas. 
@@ -65,9 +69,11 @@ Reducir de errores
 ***Objetivo de análisis y minería de datos:*** A partir de los datos históricos se analizan las variables disponibles para identificar cuáles influyen de manera predominante en el objeto de estudio. Con base en este análisis, se aplican técnicas de predicción (modelo de regresión) que permiten estimar un precio adecuado de una vivienda en función de las variables que mayor impacto tienen en su valor..
 
 
+
 ## 📂 Código, Instalación y Ejecución  
 
 Este análisis fue realizado en **Google Colab** con **Python**, por lo que es necesario contar con las siguientes librerías y herramientas instaladas.
+
 
 ### 🧰 Requisitos
 - Python 3.10+ (recomendado)  
@@ -77,6 +83,7 @@ Este análisis fue realizado en **Google Colab** con **Python**, por lo que es n
 ---
 
 ### 🚀 Instalación
+
 
 1. **Clona el repositorio**
 ```git clone https://github.com/TU_USUARIO/TU_REPO.git
@@ -134,19 +141,20 @@ deactivate
 
 
 MAESTRÍA EN CIENCIAS  
-ANALISTA DE DATOS CON MÁS DE 5 AÑOS DE EXPERIENCIA EN ENTORNOS CIENTÍFICOS
-EDUCATIVOS-ADMINISTRATIVOS. ESPECIALIZADA EN ANÁLISIS ESTADÍSTICO, GESTIÓN Y 
-VISUALIZACIÓN DE BASES DE DATOS.  
+
+Analista de datos con más de 5 años de experiencia en entornos científicos, educativos y administrativos, especializada en el análisis estadístico, la gestión de bases de datos y la creación de visualizaciones  para generar insights claros y accionables, que facilitan la interpretación de información para la toma de decisiones.  
 
 
 
 ## Preparación de los datos
 
-  Revisamos nuestra base de datos para cerciorarnos que no hay valores nulos, ni valores repetidos en nuestra base de datos, y que esta quede limpia para poder aplicar correctamente el modelo.
+ Revisamos nuestra base de datos para cerciorarnos de que no hay valores nulos, ni repetidos y que ésta quede limpia para poder aplicar correctamente el modelo.
   
-  Debido a que la base de datos original presenta un alto grado de valores faltantes en la variable PooQC usada 99.520548, se reemplazan los valores faltantes por 0 y se agrega la columna que utilizamos en nuestra base ya sin nulos y limpia llamada PoolArea.
+  Debido a que la base de datos original presenta un alto grado de valores faltantes en la variable PooQC usada 99.520548,se reemplazan los valores faltantes por cero y se agrega una columna que utilizaremos en nuestra base libre de valores, nulos y limpia, llamada PoolArea.
 
-Imagen de la base original: <img width="920" height="596" alt="image" src="https://github.com/user-attachments/assets/457e177a-642d-44e0-bf73-752318263b96" />
+Imagen de la base original:
+
+<img width="920" height="596" alt="image" src="https://github.com/user-attachments/assets/457e177a-642d-44e0-bf73-752318263b96" />
 
 Imagen de la base Clean_Data lista sin nulos
 
@@ -154,25 +162,26 @@ Imagen de la base Clean_Data lista sin nulos
 <img width="748" height="702" alt="image" src="https://github.com/user-attachments/assets/191b1497-cf52-45f5-83c5-5bcaef966e4b" />
 
 
-Debido a que las variables que elegimos, todas soon numéricas, no hay necsidad de trasformar variables categóricas a numéricas. 
-
-  
+Ya que todas las variables elegidas son numéricas, no hay necesidad de transformar variables categóricas.  
 
 
 ## Análisis Descriptivo
 
-En la base de datos original, se tenía un total de 81 variables , y 1460 datos. Una vez revisado los índices de correlación, se determinó aplicar el modelo solo a 8 variables con el índice más alto de correlación. 
+En la base de datos original se tenía un total de 81 variables , y 1460 datos. Una vez revisado los índices de correlación, se determinó aplicar el modelo solo a 8 variables con el índice más alto de correlación. 
 
 La base de datos limpia, con las 8 variablesse ve de la siguiente forma: 
+
 <img width="987" height="569" alt="image" src="https://github.com/user-attachments/assets/f0d2a882-c4ac-4257-8c06-6d5522f8e30a" />
 
+
 posee las siguientes carácterísticas: 
+
 
 <img width="1116" height="453" alt="image" src="https://github.com/user-attachments/assets/ddf33cd6-a370-43d9-9df9-9f2ecf08ca23" />
 
 <img width="830" height="649" alt="image" src="https://github.com/user-attachments/assets/50ea76e7-8a06-44d2-8148-3abedc9ad3b5" />
 
-Y las correlaciones entre nuestra variable objetivo ('SalesPrice') y las dem[as variables> 
+Y las correlaciones entre nuestra variable objetivo ('SalesPrice') y las demás variables: 
 
 <img width="1364" height="422" alt="image" src="https://github.com/user-attachments/assets/d203087c-4bf6-41f0-b128-1b17a3e24672" />
 <img width="956" height="434" alt="image" src="https://github.com/user-attachments/assets/da43afb4-2902-420c-96df-e9c2663b04c0" />
@@ -182,6 +191,7 @@ Y las correlaciones entre nuestra variable objetivo ('SalesPrice') y las dem[as 
 ## MODELADO (aprendizaje supervisado, Regresión)
 
 Se ***definen valores de X y Y*** para modelo de aprendizaje supervisado:
+
 ``` # Definir valores de X y Y para modelo de aprendizaje supervisado
 X= df.drop(columns=['SalePrice']).values
 y= df['SalePrice'].values
@@ -189,12 +199,12 @@ print(f'{X.shape=}')
 print(f'{y.shape=}')
 ```
 
-Al ser un modelo de **aprendizaje supervisado**, es decir, utiliza datos etiquetados para predecir el resultado, debemos *separar el conjunto de datos* en entrenamiento y prueba, con 70/30 para regresión.
+En un modelo de **aprendizaje supervisado**, que emplea datos etiquetados para predecir resultados, se recomienda dividir el conjunto de datos en entrenamiento (70%) y prueba (30%) con el fin de evaluar de manera objetiva el desempeño del modelo.
 
 <img width="877" height="260" alt="image" src="https://github.com/user-attachments/assets/b79b85e1-e0e7-4814-a983-8b33ed7c5047" />
 
  
- Para poder comparar dos prediccones distintas, utilizaremos dos modelos diferentes de aprendizaje supervisado: árbol de decisión para regresión y random forest. Mientras que un Árbol de Decisión divide los datos para hacer predicciones de regresión (valor numérico) o clasificación (categoría), el modelo Random Forest mejora la precisión y reduce el sobreajuste combinando las predicciones de múltiples árboles de decisión, obteniendo el resultado final mediante el promedio (regresión) o la votación mayoritaria (clasificación).
+ Para poder comparar dos prediccones distintas, utilizaremos dos modelos diferentes de aprendizaje supervisado: Árbol de Decisión para regresión y Random Forest. Mientras que un Árbol de Decisión divide los datos para hacer predicciones de regresión (valor numérico) o clasificación (categoría), el modelo Random Forest mejora la precisión y reduce el sobreajuste combinando las predicciones de múltiples árboles de decisión, obteniendo el resultado final mediante el promedio (regresión) o la votación mayoritaria (clasificación).
 
 ¿Por qué es útil usar ambos en el proyecto?
 
@@ -204,7 +214,7 @@ Al ser un modelo de **aprendizaje supervisado**, es decir, utiliza datos etiquet
 
 <img width="1271" height="482" alt="image" src="https://github.com/user-attachments/assets/0723b196-f8a2-49ab-a344-75d8743b788b" />
 
-Entonces ahora  se van a **definir** los modelos
+Entonces ahora  se van a **definir** los modelos, con el siguiente código:
 
 ``` # Definir modelo: árbol de decisión para regresión
 mod_dt_reg= DecisionTreeRegressor(max_depth=2,random_state=0)
@@ -233,9 +243,13 @@ MAE (Mean Absolute Error / Error Absoluto Medio)
 MSE (Mean Squared Error / Error Cuadrático Medio)
 RMSE (Root Mean Squared Error / Raíz del Error Cuadrático Medio)
 
-En el ejemplo que presento aquí, el último método RMSE es el que defino como método de evaluaicón, y se determina con la siguiente formula:   <img width="403" height="88" alt="image" src="https://github.com/user-attachments/assets/cea53246-08d9-4e85-9bbc-8f997c5c9db0" />
+En el ejemplo que presento aquí, el último método RMSE es el que defino como método de evaluaicón, y se determina con la siguiente formula: 
+<img width="280" height="76" alt="image" src="https://github.com/user-attachments/assets/cea53246-08d9-4e85-9bbc-8f997c5c9db0" />
+
+
 
 Ya que mide el error en las mismas unidades de la variable. Es la métrica más usada en árboles de decisión y random forest porque:
+
 *Da una idea clara de cuán lejos, en promedio, está la predicción del valor real.
 *Penaliza más los errores grandes (por ejemplo: predecir una casa en 200,000 cuando vale 500,000).
 
@@ -247,6 +261,7 @@ Ya que mide el error en las mismas unidades de la variable. Es la métrica más 
 Con esto quiero decir, en este ejercicio que si predecimos precios de casas y se obtiene un RMSE = 25,000, significa que en promedio, tu modelo se equivoca en ±25,000 dólares respecto al precio real.
 
 El codigo para poder evaluar los modelos:
+
 ```#Evaluar modelo de árbol de decisión para regresión: Método RMSE
 rmse_dt_reg= np.sqrt(mean_squared_error(y_test, y_pred_dt_reg))
 print(f'RMSE Árbol de decisión: {rmse_dt_reg: .2f}')
@@ -255,22 +270,24 @@ print(f'RMSE Árbol de decisión: {rmse_dt_reg: .2f}')
 rmse_rf_reg = np.sqrt(mean_squared_error(y_test, y_pred_rf_reg))
 print(f'{rmse_rf_reg = :.2f}')
 ```
-Estás evaluaicones nos indican que para el modelo del Árbol de decisión su RMSE:  48115.47, y para el modelo Random forest su RMSE = 45236.62, recordemos que el RMSE devuelve el error en las mismas unidades de la variable objetivo (en este caso dólares), la interpretación indica que cuanto más bajo sea el RMSE, mejor es el modelo (menor error).
+Estas evaluaciones nos indican que para el modelo del Árbol de Decisión su RMSE:  48115.47, y para el modelo Random Forest su RMSE = 45236.62, recordemos que el RMSE devuelve el error en las mismas unidades de la variable objetivo (en este caso dólares), la interpretación indica que cuanto más bajo sea el RMSE, mejor es el modelo (menor error).
 
 Además tenemos la evaluación de las demás metricas, que nos indican , de igual manera que el modelo de Random forest es mejor:
+
 <img width="479" height="651" alt="image" src="https://github.com/user-attachments/assets/683db7af-2f88-4b09-9093-760d6698f3d0" />
 
 
 
 📊 Comparación de Modelos de Regresión
+
 Al ver los valores de evaluación de los dos modelos supervisados para la predicción de precios de vivienda: Decision Tree Regressor y Random Forest Regressor. Los resultados muestran que el Random Forest ofrece un mejor desempeño estadístico frente al Decision Tree.
+
 Este modelo presenta errores más altos y solo explica el 66.8% de la variabilidad, por lo que es menos preciso y generaliza peor que el Random Forest.
 
-✅ Conclusión
-
-El Random Forest Regressor es el modelo que más se acerca a los valores reales, con menor error absoluto y cuadrático y una mayor capacidad explicativa (R²). Esto se debe a que, al combinar múltiples árboles de decisión, reduce la varianza y logra una predicción más robusta frente a datos nuevos.Una vez que evaluamos que modelo es mejor, vamos a guardar los modelos para poder hacer las pruebas de predicción y comprobar que realmente el modelo que se ajusta mejor, es el modelo Random forest.
+Podemos decir que el Random Forest Regressor es el modelo que más se acerca a los valores reales, con menor error absoluto y cuadrático y una mayor capacidad explicativa (R²). Esto se debe a que, al combinar múltiples árboles de decisión, reduce la varianza y logra una predicción más robusta frente a datos nuevos.Una vez que evaluamos que modelo es mejor, vamos a guardar los modelos para poder hacer las pruebas de predicción y comprobar que realmente el modelo que se ajusta mejor, es el modelo Random forest.
 
 Una vez evaluados ambos modelos, los guardamos, con el código:
+
 ```# Guardar modelo
 modelo_rf= mod_rf_reg 
 model_type= 'regresion'
@@ -293,6 +310,7 @@ pickle.dump(modelo_dt, open("regresion_DecisionTreeRegressor.pkl", "wb"))
 print(type(modelo_dt))
 print('Saved model: ' + model_name)
 ```
+
 Para poder proceder a las predicciones, con datos nuevos, y con los datos reales.
 
 **PREDICCIÓN**
@@ -308,7 +326,8 @@ x_new4= np.array([[5,	1256,	276,	1256,	1,	1965,	0]])
 ```
 En este caso x_new1 y x_new3 corresponden a datos reales (x_new1: datos del registro 0; x_new3: datos del registro 2).
 
-Las predicciones las hacemos con el siguiente código poemos verlas: 
+Las predicciones las hacemos con el siguiente código, poemos verlas: 
+
 ``` # Estimación de precio con el modelo Random Forest
 y_new = reg_model_rf.predict(X_new)
 np.round(y_new, 2)
@@ -329,10 +348,11 @@ y_new = reg_model_dt.predict(x_new3)
 np.round(y_new, 2)
 array([206433.65])
 ```
-Ahora bien, en casos puntuales, puede ser que el modelo de Decision Tree, se acerque más a la realidad por ejemplo, nuestra predicicón x_new3, le puse al proposito valores reales que corresponden a los datos de nuestro registro número 2  <img width="361" height="286" alt="image" src="https://github.com/user-attachments/assets/21c014da-2ca9-40f3-8344-f1092239b70a" />
+Ahora bien, en casos puntuales, puede ser que el modelo de Árbol de Desición, se acerque más a la realidad, por ejemplo nuestra predicicón x_new3, le puse al proposito valores reales que corresponden a los datos de nuestro registro número 2 :  <img width="361" height="286" alt="image" src="https://github.com/user-attachments/assets/21c014da-2ca9-40f3-8344-f1092239b70a" />
 
 
-¿Qué pasa aqui? o que obtenemos:
+¿Qué pasa aquí? o que obtenemos:
+
 Random Forest → 200,743.21
 Decision Tree → 206,433.65
 
@@ -343,12 +363,13 @@ Decision Tree → 206,433.65
 🚨 ¿Por qué pasa esto?
 
 El modelo no memoriza los datos:
-Aunque el modelo se entreno con los datos reales, los algoritmos no hacen **lookup exacto**, sino que buscan patrones y promedios.
+Aunque el modelo se entrenó con los datos reales, los algoritmos no hacen **lookup exacto**, sino que buscan patrones y promedios.
 
-Un Decision Tree profundo puede acercarse más porque se ajusta mucho a los datos (riesgo de overfitting).
+Un modelo de Árbol de Desición profundo puede acercarse más porque se ajusta mucho a los datos (riesgo de overfitting).
 Random Forest promedia muchos árboles → suaviza los valores y se aleja un poco más del dato exacto, pero generaliza mejor.
 
 Variables elegidas:
+
 Puede que falten variables importantes en el modelo (ejemplo: vecindario, tamaño del lote, número de habitaciones).
 El precio de una casa no depende solo de 5–7 variables, y eso limita la precisión.
 Escala del error:
@@ -362,7 +383,9 @@ Agrega más variables relevantes (Neighborhood, LotArea, GarageCars, etc.).
 Prueba un modelo más complejo (ej. Gradient Boosting, XGBoost, LightGBM).
 Ajusta los hiperparámetros del Random Forest (n_estimators, max_depth, etc.).
 
-**👉 Conclusión**: El modelo Random Forest no solo presenta un menor error absoluto y cuadrático, sino que también explica una mayor proporción de la variabilidad de los datos. Esto confirma que, al compararlo con el Decision Tree, el Random Forest es el modelo más robusto, preciso y cercano a la realidad.
+**👉 Conclusión**
+
+El modelo Random Forest no solo presenta un menor error absoluto y cuadrático, sino que también explica una mayor proporción de la variabilidad de los datos. Esto confirma que, al compararlo con el Decision Tree, el Random Forest es el modelo más robusto, preciso y cercano a la realidad.
 
 
 
